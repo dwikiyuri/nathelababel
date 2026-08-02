@@ -49,7 +49,7 @@ export const Footer = () => {
               {subscribed ? (
                 <div className="flex items-center gap-2 text-xs text-[#F6E0E3] bg-[#332E30] p-3 rounded-sm">
                   <Check className="w-4 h-4" />
-                  <span>Thank you for subscribing to nuthelabel updates.</span>
+                  <span>Thank you for subscribing to nathelabel updates.</span>
                 </div>
               ) : (
                 <form onSubmit={handleSubscribe} className="flex max-w-md">
