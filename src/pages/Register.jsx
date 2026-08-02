@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import { Lock, Mail, User, ArrowRight } from 'lucide-react';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { Lock, Mail, User, ArrowRight } from "lucide-react";
 
 export const Register = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
 
   const { register } = useAuth();
@@ -22,24 +22,29 @@ export const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match.');
+      alert("Passwords do not match.");
       return;
     }
     register(formData);
-    navigate('/account');
+    navigate("/account");
   };
 
   return (
     <div className="max-w-md mx-auto px-4 py-16 space-y-8 animate-fade-in">
-      
       <div className="text-center space-y-2">
-        <span className="text-xs uppercase tracking-mega text-[#807779]">New Client Registration</span>
-        <h1 className="text-3xl font-serif text-[#181516]">Join nuthelabel</h1>
-        <p className="text-xs text-[#807779]">Create an account to track orders and save your modesty wishlist.</p>
+        <span className="text-xs uppercase tracking-mega text-[#807779]">
+          New Client Registration
+        </span>
+        <h1 className="text-3xl font-serif text-[#181516]">Join nathelabel</h1>
+        <p className="text-xs text-[#807779]">
+          Create an account to track orders and save your modesty wishlist.
+        </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="bg-[#FFFFFF] p-8 border border-[#E9E2E3] rounded-sm space-y-4 shadow-sm">
-        
+      <form
+        onSubmit={handleSubmit}
+        className="bg-[#FFFFFF] p-8 border border-[#E9E2E3] rounded-sm space-y-4 shadow-sm"
+      >
         <div className="grid grid-cols-2 gap-3">
           <div>
             <label className="block text-xs uppercase tracking-wider text-[#807779] mb-1.5">
@@ -123,16 +128,17 @@ export const Register = () => {
           <span>CREATE ACCOUNT</span>
           <ArrowRight className="w-4 h-4" />
         </button>
-
       </form>
 
       <div className="text-center text-xs text-[#807779]">
         <span>Already have an account? </span>
-        <Link to="/login" className="font-semibold text-[#181516] hover:underline">
+        <Link
+          to="/login"
+          className="font-semibold text-[#181516] hover:underline"
+        >
           Sign in
         </Link>
       </div>
-
     </div>
   );
 };
