@@ -48,7 +48,7 @@ export const Shop = () => {
      16 = 16 produk / halaman
   ========================================================= */
 
-  const PRODUCTS_PER_PAGE = 4;
+  const PRODUCTS_PER_PAGE = 8;
 
   /* =========================================================
      UPDATE STATE WHEN URL / CATEGORY CHANGES
