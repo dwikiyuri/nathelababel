@@ -147,7 +147,7 @@ export const Footer = () => {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#807779] gap-4">
           <p>
             {" "}
-            Unofficial Website for © 2026 nuthelabel. All rights reserved.
+            Unofficial Website for © 2026 nathelabel. All rights reserved.
             Designed by Yuri.
           </p>
           <div className="flex gap-6">
