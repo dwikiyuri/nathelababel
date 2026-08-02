@@ -35,7 +35,7 @@ export const categories = [
     name: "Atasan Muslim",
     description:
       "Elegant modest tops, blouses, and long-sleeve silhouettes designed for everyday wear.",
-    image: "/products/tops/longsleeve-rayon/adela-milky/01.webp",
+    image: "/products/velorashirt-sand.webp",
     featured: true,
   },
 
