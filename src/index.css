@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-brand: #F6E0E3;
+    --color-brand-light: #FBF1F2;
+    --color-brand-soft: #F8E7E9;
+    --color-background: #FAF9F7;
+    --color-surface: #FFFFFF;
+    --color-text: #181516;
+    --color-muted: #807779;
+    --color-border: #E9E2E3;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF9F7;
+}
+::-webkit-scrollbar-thumb {
+  background: #D9BFC2;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B89B9E;
+}
+
+/* Hide scrollbar for clean horizontal snap sliders */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Scroll Snap */
+.snap-x-mandatory {
+  scroll-snap-type: x mandatory;
+}
+.snap-center-item {
+  scroll-snap-align: center;
+}
+.snap-start-item {
+  scroll-snap-align: start;
+}
+
+/* Page animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
