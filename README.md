@@ -1,143 +1,140 @@
-# NUTHE LABEL – Project Documentation
+# NATHE LABEL — Modern E-Commerce
+
+> A modern and responsive e-commerce web application built with **Next.js** and **JavaScript**, designed to deliver a clean shopping experience with a structured, scalable, and maintainable frontend architecture.
+
+---
 
 ## Overview
-This project is a modern React single‑page e‑commerce web application built with **Vite** + **React Router**.  It follows a clear component hierarchy:
 
-- **`src/App.jsx`** – central router and entry point.
-- **Layout** (`src/components/layout/Layout.jsx`) – shared UI (announcement bar, navbar, footer, cart drawer, toast).
-- **`src/context/*`** – context providers for authentication and cart state.
-- **Pages** (`src/pages/*.jsx`) – one component per route.
-- **Protected routes** (`src/components/layout/ProtectedRoute.jsx`).
+**NATHE LABEL** is a modern e-commerce web application focused on creating a polished online shopping experience while keeping the codebase clean and maintainable.
 
-The **README** below explains the navigation flow, maps each URL to its source file, and tells you exactly which file to edit when you want to change a page or a core behaviour.
+The project is built with **Next.js** and **JavaScript**, using a component-based architecture that separates layouts, pages, reusable UI components, authentication, and shopping-cart state.
 
----
+The application is designed to showcase a realistic e-commerce flow, including:
 
-## Directory Structure (relevant parts)
-```
-.
-├─ public/                # static assets, index.html
-├─ src/                  
-│   ├─ App.jsx                # router & providers
-│   ├─ index.css              # global styles
-│   ├─ main.jsx               # React entry point
-│   ├─ components/
-│   │   └─ layout/
-│   │       ├─ Layout.jsx          # page wrapper
-│   │       ├─ ProtectedRoute.jsx   # auth guard
-│   │       ├─ Navbar.jsx           # top navigation
-│   │       ├─ Footer.jsx           # footer
-│   │       └─ ...
-│   ├─ context/
-│   │   ├─ AuthContext.jsx   # authentication state
-│   │   └─ CartContext.jsx   # shopping‑cart state
-│   ├─ pages/
-│   │   ├─ Home.jsx          # `/`
-│   │   ├─ Shop.jsx          # `/shop` & `/shop/:category`
-│   │   ├─ ProductDetail.jsx # `/product/:slug`
-│   │   ├─ Search.jsx        # `/search`
-│   │   ├─ Journal.jsx
-│   │   ├─ JournalDetail.jsx
-│   │   ├─ About.jsx
-│   │   ├─ Cart.jsx          # protected `/cart`
-│   │   ├─ Checkout.jsx      # protected `/checkout`
-│   │   ├─ Account.jsx       # protected `/account`
-│   │   ├─ Wishlist.jsx      # protected `/wishlist`
-│   │   ├─ Login.jsx         # `/login`
-│   │   ├─ Register.jsx      # `/register`
-│   │   └─ NotFound.jsx      # catch‑all `*`
-│   └─ utils/ …
-└─ README.md
-```
----
+- Product discovery
+- Category browsing
+- Product details
+- Search
+- Shopping cart
+- Checkout
+- Authentication
+- Account management
+- Wishlist
+- Journal / editorial content
 
-## Page Flow (Routing)
-The routing configuration lives in **`src/App.jsx`**.  Below is a visual flow of the main navigation paths.
-
-```mermaid
-flowchart TD
-    A[Home (/)] --> B[Shop (/shop)] --> C[Product Detail (/product/:slug)]
-    A --> D[Search (/search)]
-    A --> E[Journal (/journal)] --> F[Journal Detail (/journal/:slug)]
-    A --> G[About (/about)]
-    A --> H[Login (/login)]
-    H --> I[Register (/register)]
-    A --> J[Cart (/cart) (protected)]
-    J --> K[Checkout (/checkout) (protected)]
-    A --> L[Account (/account) (protected)]
-    A --> M[Wishlist (/wishlist) (protected)]
-    A --> N[NotFound (*])
-```
----
-
-## Where to Modify What
-| Feature / Page | URL Pattern | Source File | Typical Edit Location |
-|----------------|-------------|-------------|----------------------|
-| **Home** | `/` | `src/pages/Home.jsx` | Change the JSX markup, hero section, featured products, etc. |
-| **Shop** | `/shop` & `/shop/:category` | `src/pages/Shop.jsx` | Adjust product grid, category filters, API calls. |
-| **Product Detail** | `/product/:slug` | `src/pages/ProductDetail.jsx` | Edit product image carousel, description, add‑to‑cart logic. |
-| **Search** | `/search` | `src/pages/Search.jsx` | Modify search bar styling or search‑result rendering. |
-| **Journal** | `/journal` | `src/pages/Journal.jsx` | Update list layout, pagination. |
-| **Journal Detail** | `/journal/:slug` | `src/pages/JournalDetail.jsx` | Change article layout, comments section. |
-| **About** | `/about` | `src/pages/About.jsx` | Edit static content, team cards, etc. |
-| **Login** | `/login` | `src/pages/Login.jsx` | Adjust form fields, validation, styling. |
-| **Register** | `/register` | `src/pages/Register.jsx` | Same as login – form UI. |
-| **Cart** (protected) | `/cart` | `src/pages/Cart.jsx` | Modify cart table, quantity controls. |
-| **Checkout** (protected) | `/checkout` | `src/pages/Checkout.jsx` | Update checkout flow, payment UI. |
-| **Account** (protected) | `/account` | `src/pages/Account.jsx` | User profile edit, order history. |
-| **Wishlist** (protected) | `/wishlist` | `src/pages/Wishlist.jsx` | Change wishlist layout, remove‑item logic. |
-| **Not Found** | `*` | `src/pages/NotFound.jsx` | Custom 404 page design. |
-
-### Core App / Global Changes
-| Concern | File | What to Edit |
-|---------|------|--------------|
-| **Routing table** | `src/App.jsx` | Add/remove routes, change path strings, wrap new pages in `<ProtectedRoute>` if needed. |
-| **Layout (header/footer, drawer, toast)** | `src/components/layout/Layout.jsx` | Rearrange components, add new global UI elements. |
-| **Auth guard** | `src/components/layout/ProtectedRoute.jsx` | Change redirection logic, add role‑based checks. |
-| **Auth state** | `src/context/AuthContext.jsx` | Adjust login handling, token storage, `isAuthenticated` flag. |
-| **Cart state** | `src/context/CartContext.jsx` | Modify cart actions, persistence, totals calculation. |
-| **Global styles** | `src/index.css` | Update Tailwind‑like utilities, theme colours, dark mode variables. |
-| **Entry point** | `src/main.jsx` | Usually no change; only needed when switching to a different root element. |
+This project is also intended as a **portfolio project**, demonstrating modern frontend development practices, responsive UI implementation, state management, routing, and e-commerce user flows.
 
 ---
 
-## How to Add a New Page
-1. **Create a component** in `src/pages/YourNewPage.jsx`.
-2. **Export** it with a named export (e.g., `export const YourNewPage = () => { … }`).
-3. **Add a route** in `src/App.jsx` inside the `<Routes>` block:
-   ```jsx
-   <Route path="/your‑path" element={<YourNewPage />} />
-   ```
-4. If the page must be protected, wrap the element with `<ProtectedRoute>`:
-   ```jsx
-   <Route path="/secure" element={<ProtectedRoute><YourNewPage /></ProtectedRoute>} />
-   ```
-5. **Style** the page using `src/index.css` or component‑scoped CSS modules.
----
+## ✦ Highlights
 
-## Quick Reference for Common Replacements
-- **Change the logo** → edit the `<Navbar>` component (usually `src/components/layout/Navbar.jsx`).
-- **Update the primary colour** → modify the CSS variable in `src/index.css` (e.g., `--primary: #ff6600;`).
-- **Switch authentication method** → edit `src/context/AuthContext.jsx` where the token is stored and `isAuthenticated` is derived.
-- **Add a new global toast** → use the `Toast` component imported from `src/components/ui/Toast.jsx` and trigger it via the toast context (if existent).
----
-
-## Development Commands
-```bash
-# Install dependencies (run once)
-npm install
-
-# Start development server
-npm run dev   # Vite dev server on http://localhost:5173
-
-# Build for production
-npm run build
-```
----
-
-## License & Credits
-*This project uses open‑source libraries such as React, React‑Router, and Vite.*
+- Modern and responsive e-commerce interface
+- Built with **Next.js**
+- Written in **JavaScript**
+- Component-driven architecture
+- Product and category browsing
+- Search functionality
+- Product detail pages
+- Shopping cart
+- Checkout flow
+- Authentication and protected pages
+- Account management
+- Wishlist
+- Editorial / Journal section
+- Reusable layout and UI components
+- Responsive design for desktop, tablet, and mobile
+- Scalable project structure for future API integration
 
 ---
 
-*End of README*
+## Tech Stack
+
+### Frontend
+
+| Technology | Purpose |
+|------------|---------|
+| **Next.js** | React framework, routing, rendering, and application structure |
+| **JavaScript** | Application logic and component development |
+| **React** | UI component development |
+| **CSS / Tailwind CSS** | Styling and responsive design |
+| **React Context** | Global authentication and cart state |
+
+### Application Structure
+
+The project follows a component-based architecture to keep the codebase organized and easy to maintain.
+
+---
+
+## Project Structure
+
+```text
+src/
+├── app/
+│   ├── page.js
+│   ├── shop/
+│   │   └── page.js
+│   ├── product/
+│   │   └── [slug]/
+│   │       └── page.js
+│   ├── search/
+│   │   └── page.js
+│   ├── journal/
+│   │   ├── page.js
+│   │   └── [slug]/
+│   │       └── page.js
+│   ├── about/
+│   │   └── page.js
+│   ├── login/
+│   │   └── page.js
+│   ├── register/
+│   │   └── page.js
+│   ├── cart/
+│   │   └── page.js
+│   ├── checkout/
+│   │   └── page.js
+│   ├── account/
+│   │   └── page.js
+│   └── wishlist/
+│       └── page.js
+│
+├── components/
+│   ├── layout/
+│   │   ├── Navbar.jsx
+│   │   ├── Footer.jsx
+│   │   ├── CartDrawer.jsx
+│   │   └── Layout.jsx
+│   │
+│   ├── product/
+│   │   ├── ProductCard.jsx
+│   │   ├── ProductGrid.jsx
+│   │   ├── ProductGallery.jsx
+│   │   └── ProductInfo.jsx
+│   │
+│   ├── category/
+│   │   └── CategoryCard.jsx
+│   │
+│   ├── cart/
+│   │   ├── CartItem.jsx
+│   │   └── CartSummary.jsx
+│   │
+│   └── ui/
+│       ├── Button.jsx
+│       ├── Modal.jsx
+│       ├── Toast.jsx
+│       └── ...
+│
+├── context/
+│   ├── AuthContext.jsx
+│   └── CartContext.jsx
+│
+├── lib/
+│   ├── api.js
+│   ├── constants.js
+│   └── utils.js
+│
+├── hooks/
+│   └── ...
+│
+└── styles/
+    └── globals.css
